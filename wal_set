@@ -20,5 +20,11 @@ notify-send "Building st"
 cd ~/.st
 sudo make clean install
 
+cp ~/.cache/wal/colors-wal-dmenu.h ~/suckless/misc/dmenu/colors.h
+now=$PWD
+notify-send "Building dmenu"
+cd ~/suckless/misc/dmenu
+sudo make clean install
+
 cd $now
 notify-send "Colorscheme Built"
