@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+sudo mount /dev/sda1 /mnt
+ranger /mnt
+sudo umount /mnt

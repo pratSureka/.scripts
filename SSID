@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -e
+
+x=`iw wlp2s0 link | grep SSID | cut -d: -f2`
+if [[ $x = "" ]]; then
+  echo "📶 DISCONNECTED" 
+  exit
+else
+  echo "📶$x"
+fi

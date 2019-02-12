@@ -1,0 +1,13 @@
+#!/bin/sh
+
+x="`mpc | head -n 1` ` mpc | grep playing | cut -d " " -f6`"
+if [ `mpc | grep -o paused` ]
+then
+  icon=""
+elif [ `mpc | wc -l` -eq 1 ]
+then
+  echo "栗" && exit
+else
+  icon=""
+fi
+echo "$icon $x"
