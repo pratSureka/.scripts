@@ -4,13 +4,11 @@ set -e
 x=`amixer sget Master | tail -n 1 | tr -d "[]" | cut -d" " -f6 | tr -d "%"`
 
 if [[ `amixer sget Master | grep off` ]]; then
-  printf "婢\\n" && exit
+  printf "🔇\\n" && exit
 elif [ $x -gt "60" ]; then
 	icon=" "
 elif [[ $x -gt "40" ]]; then
-	icon="墳"
-elif [[ $x -gt "10" ]]; then
-	icon="奔"
+	icon="🔉 "
 else
 	icon=" "
 fi

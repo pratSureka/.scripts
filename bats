@@ -16,7 +16,7 @@ if [[ `acpi | grep -o Discharging` ]]; then
   fi
 else
   if [[ x -eq 100 ]]; then
-    s=""
+    s="⚡"
   else
     s=""
   fi

@@ -1,0 +1,22 @@
+#!/bin/bash
+set -e
+
+x=`xbacklight -get`
+# echo ${X%.*}
+# x=`echo ${X%.*}`
+# if [ $x -eq "100.0" ]; then
+# 	icon="🌑"
+# elif [ $x -gt "70.0" ]; then
+# 	icon="🌒"
+# elif [ $x -gt "50.0" ]; then
+# 	icon="🌓"
+# elif [[ $x -gt "20.0" ]]; then
+# 	icon="🌔"
+# else
+# 	icon="🌕"
+# fi
+
+icon="🌓"
+# echo "$icon "
+printf "%s %.0f" $icon $x
+# echo "$icon$x%"
