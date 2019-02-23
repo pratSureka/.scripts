@@ -2,7 +2,7 @@
 
 set -e
 
-wal -q -i $1 
+wal -q -i $1
 notify-send "Wallpaper set"
 cp $1 ~/.config/wall.png
 cat ~/.cache/wal/colors-wal-dwm.h | grep -v urg > ~/.dwm/color.h
