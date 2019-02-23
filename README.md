@@ -3,7 +3,7 @@
 
 <h1>Usage<h1>
 <p>Best way to make use of this repository is to clone in into your home directory and export it to your PATH variable.<p>
-<p><strong>export PATH="$PATH:$HOME/.scripts"<strong><p>
+><p><strong>export PATH="$PATH:$HOME/.scripts"<strong><p>
 <p>Though I would be best to get a basic idea from this scripts and write your own based on your usecase.<p>
 
 <h3>Status bar<h3>
