@@ -6,7 +6,6 @@
 <p><strong>export PATH="$PATH:$HOME/.scripts"<strong><p>
 <p>Though I would be best to get a basic idea from this scripts and write your own based on your usecase.<p>
 
-<h2>Scrpits<h2>
 <h3>Status bar<h3>
 <h4>Discription<h4>
 <p>I use this scripts to get my volume,etc. in the status bar in dwm,i3,etc.<p>
