@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 while true ; do
-  xsetroot -name "`mpds`  `SSID`  `back_light`%  `vola`  `bats`   $(date '+%Y %b %d (%a) %I:%M%p') "
+  xsetroot -name "`mpds`  `SSID`  `back_light`%  `vola`  `bats`  📆 $(date '+%Y %b %d (%a) %I:%M%p') 🕙"
   sleep 1
 done

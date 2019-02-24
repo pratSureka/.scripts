@@ -6,11 +6,11 @@ x=`amixer sget Master | tail -n 1 | tr -d "[]" | cut -d" " -f6 | tr -d "%"`
 if [[ `amixer sget Master | grep off` ]]; then
   printf "🔇\\n" && exit
 elif [ $x -gt "60" ]; then
-	icon=" "
+	icon="🔊 "
 elif [[ $x -gt "40" ]]; then
 	icon="🔉 "
 else
-	icon=" "
+	icon="🔈 "
 fi
 
 echo "$icon$x%"

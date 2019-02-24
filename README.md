@@ -1,11 +1,11 @@
 <h1>Discription<h1>
-<h2><p>This is a repository that contains some scripts that I use to perform day-to-day tasks and get stats of my machine.<p><h2>
+This is a repository that contains some scripts that I use to perform day-to-day tasks and get stats of my machine.
 <h1>Usage<h1>
 <h2><p>Best way to make use of this repository is to clone in into your home directory and export it to your PATH variable.<p><h2>
 <p><strong>export PATH="$PATH:$HOME/.scripts"<strong><p>
 <p>Though I would be best to get a basic idea from this scripts and write your own based on your usecase.<p>
-<h3>Status bar<h3>
-<h4>Discription<h4>
+<h2>Status bar<h2>
+<h3>Discription<h3>
 <p>I use this scripts to get my volume,etc. in the status bar in dwm,i3,etc.<p>
 <h6>SSID<h6>
 <p>This prints the SSID or the name of the WiFi connection the laptop is connected to using the <strong>wi<strong> command with "📶" symbol preceding it.<p>
