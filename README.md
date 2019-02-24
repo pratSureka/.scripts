@@ -10,6 +10,8 @@
 
 <h2>Status bar</h2>
 
+<a href="status_bar.png"></a>
+
 <h3>Discription</h3>
 <p>I use this scripts to get my volume,etc. in the status bar in dwm,i3,etc.</p>
 
