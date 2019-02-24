@@ -3,5 +3,5 @@
 set -e
 
 sudo mount /dev/sda1 /mnt
-ranger /mnt
+$FILEMGR /mnt
 sudo umount /mnt
