@@ -45,4 +45,4 @@
 <h4>wal_set</h4>
 <p>It sets the wallpaper using <strong><em>pywal</em></strong>. It then recompiles dwm,st and dmenu with the new colorscheme.</p>
 <h4>walldl</h4>
-<p>This downloads wallpapers from <strong>https://alpha.wallhaven.com</strong> and opens them in sxiv.</p>
+<p>This downloads wallpapers from <strong>https://alpha.wallhaven.cc</strong> and opens them in sxiv through <strong><em>dmenu</em></strong>.</p>
