@@ -2,29 +2,7 @@
 
 set -e
 
-wal -q -i $1
-notify-send "Wallpaper set"
+feh --bg-scale $1
 cp $1 ~/.config/wall.png
-cat ~/.cache/wal/colors-wal-dwm.h | grep -v urg > ~/.dwm/color.h
-
-now=$PWD
-notify-send "Building dwm"
-cd ~/.dwm
-sudo make clean install
-
-cd $now
-
-cp ~/.cache/wal/colors-wal-st.h ~/.st/colors.h
-now=$PWD
-notify-send "Building st"
-cd ~/.st
-sudo make clean install
-
-cp ~/.cache/wal/colors-wal-dmenu.h ~/suckless/tools/dmenu/colors.h
-now=$PWD
-notify-send "Building dmenu"
-cd ~/suckless/tools/dmenu
-sudo make clean install
-
-cd $now
-notify-send "Colorscheme Built"
+notify-send "Wallpaper set"
+bspc wm -r

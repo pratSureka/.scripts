@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -e
-
-wal -c
-wal -q -a "75" -i $1
-notify-send "Wallpaper set"
-cp $1 ~/.config/wall.png
-bspc wm -r
