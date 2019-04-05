@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+echo "Mounting HDD"
+sleep 2
+sudo mount /dev/sda1 /mnt
+echo "Starting Backup!!!!"
+sleep 2
+sudo rsync -aAX --exclude '*.Trash-1000' /home/prat/ /mnt/backup
+echo "Backup Complete!!!!"
+sleep 2
+echo "Unmounting HDD"
+sudo umount /mnt
