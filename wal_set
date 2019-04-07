@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-set -e
-
-feh --bg-fill $1
-cp $1 ~/.config/wall.png
-notify-send "Wallpaper set"
-# bspc wm -r

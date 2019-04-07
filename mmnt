@@ -1,2 +1,0 @@
-mkdir ~/mnt
-simple-mtpfs --device 1 ~/mnt
