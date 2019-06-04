@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -e
+
+while [[ true ]]; do
+  for i in `ls ~/Pictures/Wallpapers`; do
+    feh --bg-fill ~/Pictures/Wallpapers/$i
+    sleep 300
+  done
+done
