@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -e
+
+mpd &
+dunst &
+urxvtd &
+nm-applet &
+unclutter &
+xset b off &
+blueman-applet &
+redshift -l 13.082680:80.270718 &
+# feh --bg-fill ~/.config/wall.png &
+setxkbmap -option caps:swapescape &
+wallslide &
+sxhkd &
+# compton &
+compton --backend glx --blur-background --blur-method kawase --blur-strength 8 --vsync opengl-swc &
+(conky | while read LINE; do xsetroot -name "$LINE"; done) &
+exec dwm
