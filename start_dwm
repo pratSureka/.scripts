@@ -2,8 +2,10 @@
 set -e
 
 mpd &
+xrdb ~/.Xdefaults &
 dunst &
 urxvtd &
+betterlockscreen -u ~/Pictures/Wallpapers &
 nm-applet &
 unclutter &
 xset b off &
@@ -13,7 +15,6 @@ redshift -l 13.082680:80.270718 &
 setxkbmap -option caps:swapescape &
 wallslide &
 sxhkd &
-# compton &
-compton --backend glx --blur-background --blur-method kawase --blur-strength 8 --vsync opengl-swc &
+compton &
 (conky | while read LINE; do xsetroot -name "$LINE"; done) &
 exec dwm
