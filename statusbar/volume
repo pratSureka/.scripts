@@ -3,7 +3,7 @@
 vol=`pulsemixer --get-volume | awk '{print $1}'`
 [ "$(pulsemixer --get-mute)" = "1" ] && printf "🔇\\n" && exit
 
-if [[ $vol -gt 70 ]]; then
+if [[ $vol -gt 60 ]]; then
   icon="🔊"
 elif [[ $vol -gt 20 ]]; then
   icon="🔉"
