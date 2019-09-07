@@ -1,0 +1,11 @@
+#!/bin/bash
+
+essid=`iwconfig wlp2s0 | grep ESSID | cut -d'"' -f2`
+
+[ "$(cat /sys/class/net/w*/operstate)" = 'down' ] && wifiicon="📡"
+if [[ `cat /sys/class/net/w*/operstate` = 'down' ]]; then
+  icon="❌" && essid="Wifi Down"
+else
+  icon="📶"
+fi
+printf "%s %s" "$(cat /sys/class/net/e*/operstate | sed "s/down/❎/;s/up/🌐/")" "$icon $essid"

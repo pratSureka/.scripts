@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+option=`echo -e "Reboot\nShutdown\nLockscreen\nLogout" | dmenu -i`
+case $option in
+  "Reboot" )
+    sudo reboot;;
+  "Shutdown" )
+    sudo shutdown -h now;;
+  "Logout" )
+    i3-msg exit;;
+  "Lockscreen" )
+    i3lock -i ~/.config/wall.png;;
+esac
