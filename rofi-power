@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-option=`echo -e "Reboot\nShutdown\nLockscreen\nLogout" | dmenu -i`
+option=`echo -e "Reboot\nShutdown\nLockscreen\nLogout" |  rofi -dmenu -i -p "Select"`
 case $option in
   "Reboot" )
     sudo reboot;;
