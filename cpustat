@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo " `iostat | awk 'FNR == 4 {print $1}'`%"

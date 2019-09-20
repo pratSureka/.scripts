@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+while [[ true ]]; do
+  xsetroot -name "`volume` | `internet` | `voidup` | `cpustat` | `battery` |  `date '+%Y %b %d (%a) %I:%M%p'`"
+  sleep 5;
+done
