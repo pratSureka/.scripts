@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 vol=`pulsemixer --get-volume | awk '{print $1}'`
-[ "$(pulsemixer --get-mute)" = "1" ] && printf "\\n" && exit
+[ "$(pulsemixer --get-mute)" = "1" ] && printf "ﱝ\\n" && exit
 
 if [[ $vol -gt 60 ]]; then
   icon=""
