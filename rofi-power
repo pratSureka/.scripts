@@ -7,7 +7,8 @@ case $option in
   "Shutdown" )
     sudo shutdown -h now;;
   "Logout" )
-    i3-msg exit;;
+    i3-msg exit
+    bspc quit;;
   "Lockscreen" )
-    i3lock -i ~/.config/wall.png;;
+    i3lock -i ~/.config/wall.png
 esac
