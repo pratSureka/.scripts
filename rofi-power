@@ -10,5 +10,5 @@ case $option in
     i3-msg exit
     bspc quit;;
   "Lockscreen" )
-    i3lock -i ~/.config/wall.png
+    betterlockscreen -s dim
 esac
