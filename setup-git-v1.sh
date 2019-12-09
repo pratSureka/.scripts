@@ -5,7 +5,7 @@
 # git init
 git config --global user.name "Pratyush Sureka"
 git config --global user.email "pratsure@gmail.com"
-sudo git config --system core.editor nano
+sudo git config --system core.editor vim
 git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=25000'
 git config --global push.default simple
