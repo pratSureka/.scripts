@@ -1,3 +1,0 @@
-#!/bin/bash
-
-echo " `xbps-install -Suvn | wc -l`"

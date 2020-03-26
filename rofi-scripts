@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-option=`ls ~/.scripts |  rofi -dmenu -i -p "Select" -config ~/.cache/wal/colors-rofi-dark.rasi -theme ~/.config/rofi/mytheme.rasi`
-if [ -z $option ]; then
-  exit;
-else
-    nvim ~/.scripts/$option
-fi

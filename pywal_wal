@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-set -e
-
-wal -c
-wal -q -s -t -i ~/.config/wall.png
-cp ~/.cache/wal/dunstrc ~/.config/dunst/
-killall dunst
