@@ -4,5 +4,5 @@ while [[ true ]]; do
     if [ `cat /sys/class/power_supply/BAT0/capacity` -lt 15 ] && [ "`cat /sys/class/power_supply/BAT0/status`" == "Discharging" ]; then
         dunstify -u normal -t 3000 -i /usr/share/icons/Faba/48x48/notifications/notification-battery-low.svg "Battery Low"
     fi
-    sleep 1000
+    sleep 100000
 done
