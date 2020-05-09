@@ -1,0 +1,16 @@
+#!/bin/bash
+
+capacity="$(pulsemixer --get-volume | cut -d" " -f1)"
+mute="$(pulsemixer --get-mute)"
+ 
+if [[ $mute -eq 1 ]]; then
+    symbol="婢"
+elif [[ $capacity -lt 30 ]]; then
+    symbol=""
+elif [[ $capacity -lt 60 ]]; then
+    symbol=""
+else
+    symbol=""
+fi
+
+echo "$symbol$capacity%"

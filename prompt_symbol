@@ -1,0 +1,18 @@
+#!/bin/bash
+
+files=`ls`
+symbol=""
+# echo $files
+if [[ `echo $files | grep *.cpp` ]]; then
+    symbol=""
+fi
+if [[ `echo $files | grep *.c` ]]; then
+    symbol="$symbol "
+fi
+if [[ `echo $files | grep *.py` ]]; then
+    symbol="$symbol  `python -V` "
+fi
+if [[ `echo $files | grep *.git` ]]; then
+    symbol="$symbol "
+fi
+echo $symbol
