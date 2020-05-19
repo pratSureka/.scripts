@@ -1,0 +1,4 @@
+#!/bin/bash
+
+maim ~/Pictures/Screenshots/$(date '+%y%m%d').png
+dunstify --icon="~/Pictures/Screenshots/$(date '+%y%m%d').png" "Screenschot taken"
