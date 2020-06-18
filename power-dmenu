@@ -1,10 +1,10 @@
 #!/bin/bash
 
 case "$(echo -e "Shutdown\nRestart\nLogout\nSuspend\nLock" | dmenu \
-    -nb "${COLOR_BACKGROUND:-#151515}" \
-    -nf "${COLOR_DEFAULT:-#aaaaaa}" \
-    -sf "${COLOR_HIGHLIGHT:-#589cc5}" \
-    -sb "#1a1a1a" \
+    -nb "${COLOR_BACKGROUND:-#000000}" \
+    -nf "${COLOR_DEFAULT:-#ffffff}" \
+    -sf "${COLOR_HIGHLIGHT:-#ffffff}" \
+    -sb "#2a2a2a" \
     -b -i -p \
     "Power:" -l 5)" in
         Shutdown) exec systemctl poweroff;;
