@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+choice="`echo -e "External\nNative\nMirror" | rofi -dmenu -no-fixed-num-lines`"
+
+echo $choice
+if [[ $choice == "External" ]]; then
+    echo "1"
+    bash ~/.scripts/monitor_layout/External.sh
+elif [[ $choice == "Native" ]]; then
+    echo "2"
+    bash ~/.scripts/monitor_layout/Native.sh
+else
+    echo "3"
+    bash ~/.scripts/monitor_layout/Mirror.sh
+fi
