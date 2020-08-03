@@ -1,7 +1,7 @@
 #!/bin/bash
 
 while [[ true ]]; do
-    xsetroot -name "  $(xbacklight -get | cut -d"." -f1)% | $(volume) | $(battery) |  $(TZ='Asia/Kolkata' date "+%a %d %b %I:%M %p %Y") "
-    sleep 2
+    echo -e "+@fg=1; $(xbacklight -get | cut -d"." -f1)%  +@fg=2; $(volume)  +@fg=3; $(battery)  +@fg=4;  $(TZ='Asia/Kolkata' date "+%a %d %b %I:%M %p %Y") +@fg=5; "
+    sleep 1
 done 
 #
