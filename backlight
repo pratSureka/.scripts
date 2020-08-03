@@ -1,22 +1,24 @@
 #!/bin/bash
 
 # You can call this script like this:
-
-function send_notification {
 light=`xbacklight -get | cut -d"." -f1`
-icon_name="/usr/share/icons/Faba/48x48/notifications/notification-display-brightness.svg"
-bar=$(seq -s "─" $(($light/5)) | sed 's/[0-9]//g')
-# Send the notification
-dunstify "$light""     ""$bar" -a "changeBacklight" -i "$icon_name" -t 2000 -h string:synchronous:"$bar" -r 600
-}
-
-case $1 in
-    up)
-	xbacklight +5 > /dev/null
-	send_notification
-	;;
-    down)
-	xbacklight -5 > /dev/null
-	send_notification
-	;;
-esac
+if [[ $light -lt 100 ]]; then
+	if [[ -p '/tmp/xob_backlight' ]]; then
+		case $1 in
+			up)
+			xbacklight +5 > /dev/null;
+			echo $light+5 > /tmp/xob_backlight
+			;;
+			down)
+			xbacklight -5 > /dev/null;
+			echo $light-5 > /tmp/xob_backlight
+			;;
+		esac
+	else
+		mkfifo /tmp/xob_backlight;
+		echo $light > /tmp/xob_backlight;
+		tail -f /tmp/xob_backlight | xob &
+	fi
+else
+	echo $light > /tmp/xob_backlight
+fi
