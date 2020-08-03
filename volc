@@ -1,48 +1,29 @@
 #!/bin/bash
 
-# You can call this script like this:
-
-function send_notification {
 volume=`pulsemixer --get-volume | cut -d" " -f1`
-    # Make the bar with the special character ─ (it's not dash -)
-    # https://en.wikipedia.org/wiki/Box-drawing_character
-#bar=$(seq -s "─" $(($volume/5)) | sed 's/[0-9]//g')
-echo $volume
-if [ "$volume" = "0" ]; then
-    icon_name="/usr/share/icons/Faba/48x48/notifications/notification-audio-volume-muted.svg"
-elif [  "$volume" -lt "10" ]; then
-    icon_name="/usr/share/icons/Faba/48x48/notifications/notification-audio-volume-low.svg"
-elif [ "$volume" -lt "30" ]; then
-    icon_name="/usr/share/icons/Faba/48x48/notifications/notification-audio-volume-low.svg"
-elif [ "$volume" -lt "70" ]; then
-    icon_name="/usr/share/icons/Faba/48x48/notifications/notification-audio-volume-medium.svg"
+
+if [[ -p '/tmp/xob_vol' ]]; then
+	case $1 in
+		up)
+		echo $volume+5 > /tmp/xob_vol
+		pulsemixer --change-volume +5 > /dev/null
+		;;
+		down)
+		echo $volume+5 > /tmp/xob_vol
+		pulsemixer --change-volume -5 > /dev/null
+		;;
+		mute)
+			if [[ `pulsemixer --get-mute` -eq 1 ]]; then
+				echo $volume > /tmp/xob_vol
+			else
+				echo "$volume!" > /tmp/xob_vol
+			fi
+		pulsemixer --toggle-mute
+		;;
+	esac
 else
-    icon_name="/usr/share/icons/Faba/48x48/notifications/notification-audio-volume-high.svg"
+	mkfifo /tmp/xob_vol;
+	echo $volume > /tmp/xob_vol;
+	tail -f /tmp/xob_vol | xob &
 fi
-
-bar=$(seq -s "─" $(($volume/5)) | sed 's/[0-9]//g')
-# Send the notification
-dunstify "$volume"" ""$bar" -a "changeVolume" -i "$icon_name" -t 2000 -h string:synchronous:"$bar" -r 555
-}
-
-case $1 in
-    up)
-	pulsemixer --change-volume +5 > /dev/null
-	send_notification
-	;;
-    down)
-	pulsemixer --change-volume -5 > /dev/null
-	send_notification
-	;;
-    mute)
-	pulsemixer --toggle-mute
-    
-    if [[ `pulsemixer --get-mute` == 1 ]]; then
-        icon_name="/usr/share/icons/Faba/48x48/notifications/notification-audio-volume-muted.svg"
-	    dunstify -a "changeVolume" -i "$icon_name" -t 2000 -r 2593 -u normal "Mute"
-	else
-	    send_notification
-	fi
-	;;
-esac
 canberra-gtk-play -i audio-volume-change -d "changeVolume"
