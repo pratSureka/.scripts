@@ -1,0 +1,29 @@
+#!/bin/bash
+
+volume=`pulsemixer --get-volume | cut -d" " -f1`
+
+if [[ -p '/tmp/xob_vol' ]]; then
+	case $1 in
+		up)
+		echo $volume+5 > /tmp/xob_vol
+		pulsemixer --change-volume +5 > /dev/null
+		;;
+		down)
+		echo $volume+5 > /tmp/xob_vol
+		pulsemixer --change-volume -5 > /dev/null
+		;;
+		mute)
+			if [[ `pulsemixer --get-mute` -eq 1 ]]; then
+				echo $volume > /tmp/xob_vol
+			else
+				echo "$volume!" > /tmp/xob_vol
+			fi
+		pulsemixer --toggle-mute
+		;;
+	esac
+else
+	mkfifo /tmp/xob_vol;
+	echo $volume > /tmp/xob_vol;
+	tail -f /tmp/xob_vol | xob &
+fi
+canberra-gtk-play -i audio-volume-change -d "changeVolume"

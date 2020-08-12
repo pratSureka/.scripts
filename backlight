@@ -1,24 +1,13 @@
 #!/bin/bash
 
 # You can call this script like this:
-light=`xbacklight -get | cut -d"." -f1`
-if [[ $light -lt 100 ]]; then
-	if [[ -p '/tmp/xob_backlight' ]]; then
-		case $1 in
-			up)
-			xbacklight +5 > /dev/null;
-			echo $light+5 > /tmp/xob_backlight
-			;;
-			down)
-			xbacklight -5 > /dev/null;
-			echo $light-5 > /tmp/xob_backlight
-			;;
-		esac
-	else
-		mkfifo /tmp/xob_backlight;
-		echo $light > /tmp/xob_backlight;
-		tail -f /tmp/xob_backlight | xob &
-	fi
-else
-	echo $light > /tmp/xob_backlight
-fi
+case $1 in
+    up)
+    xbacklight +5 > /dev/null;
+    echo $light+5 > /tmp/xob_backlight
+    ;;
+    down)
+    xbacklight -5 > /dev/null;
+    echo $light-5 > /tmp/xob_backlight
+    ;;
+esac
